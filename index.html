@@ -13,7 +13,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<script src="app.js"></script>
-
 </head>
 
 <body>
@@ -21,22 +20,20 @@
 		<div class="header">
 			<h1>bingeti.me</h1>
 			<h2>how long would it take to watch all of...</h2>
+
 			<form method="get">
 				<div class="box">
-					<input id="search-bar" type="text" placeholder="type in a tv show" />
+					<input id="search-bar" type="text" autocomplete="off" placeholder="type in a tv show" />
 					<button class="submit"><i class="fas fa-search"></i></button>
 				</div>
 			</form>
 
 			<div id="search-results">
 				<h2>search results</h2>
-				<div id="output">
-
-				</div>
-
+				<div id="output"></div>
 			</div>
 			<p id="final-output"></p>
+
 		</div>
 	</div>
 </body>
-

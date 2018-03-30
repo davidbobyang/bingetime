@@ -12,60 +12,59 @@ h1 {
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 30px;
 }
 
 .result {
 	display: block;
 }
 
-
-
 form {
-	width:60%; 
+	width: 60%; 
 	margin:0 auto;
 	padding-top: 10px;
 	text-align: left;
-
 	padding-bottom: 20px;
 }
 
 .box {
-	height:60px;
-	border-style:solid; 
-	border-width:6px;
-	border-color:#373D3F;
+	height: 60px;
+	border-style: solid; 
+	border-width: 6px;
+	border-color: #373D3F;
+	width: 100%;
 }
 
 #search-bar, .submit {
-	font-size:18px;
+	font-size: 18px;
 	padding: 0 15px;
 	height: 100%; 
-	border:none;
+	border: none;
 }
 
 #search-bar {
-	highlight-color: #373D3F;
-	width: 92%;
+	width: calc(100% - 50px);
 }
 
 button:focus, input:focus {
-	outline:none;  
+	outline: none;  
 }
 
 .submit {
-	font-weight:600;
-	background:#373D3F;
-	color:#fff;
-	height:100%;
-	width: 8%;
-	float:right;
+	font-weight: 600;
+	background: #fff;
+	color: #373D3F;
+	height: 100%;
+	width: 50px;
+	float: right;
 	transition: all 100ms ease-in-out;
 }
 
 
 .submit:hover {
-	background: #757575;
+	background: #373D3F;
+	color: #fff;
+	cursor: pointer;
 }
 
 #search-results {

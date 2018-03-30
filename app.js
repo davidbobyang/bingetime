@@ -27,6 +27,8 @@ $(document).ready(function() {
 				}
 
 				$('#search-results').show();
+
+				document.activeElement.blur();
 				
 				$('#output a').click(function(event) {
 					id = json.results[event.target.id].id;
