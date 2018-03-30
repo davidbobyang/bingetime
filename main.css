@@ -86,3 +86,9 @@ a:hover {
 p {
 	font-size: 1.5em;
 }
+
+@media (max-width: 476px) {
+	form {
+		width: 90%;
+	}
+}
