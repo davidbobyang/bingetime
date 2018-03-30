@@ -1,6 +1,7 @@
 $(document).ready(function() {
+
 	$('button').click(function() {
-		var input = $('#tv').val();
+		var input = $('#search-bar').val();
 		var id;
 
 		$.ajax({
@@ -23,6 +24,8 @@ $(document).ready(function() {
 					$('#output').append("<a href ='#' class='result' id='" + i + "'></a>");
 					document.getElementById(i).innerHTML = json.results[i].name;
 				}
+
+				$('#search-results').show();
 				
 				$('#output a').click(function(event) {
 					id = json.results[event.target.id].id;
@@ -36,6 +39,8 @@ $(document).ready(function() {
 					dataType: 'jsonp',
 
 					success: function(json) {
+						$('#search-results').hide();
+
 						var run_time = json.episode_run_time;
 						if (run_time.constructor === Array) {
 							run_time = run_time[0];
@@ -48,7 +53,7 @@ $(document).ready(function() {
 						var days = parseInt(hours / 24);
 						var remainder_hours = parseInt(hours) % 24;
 
-						document.getElementById('final-output').innerHTML = name + days + ' days and ' + remainder_hours + ' hours';
+						document.getElementById('final-output').innerHTML = json.name + ' takes ' + days + ' days and ' + remainder_hours + ' hours to watch';
 					},
 					error: function(e) {
 						console.log(e.message);

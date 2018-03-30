@@ -13,14 +13,34 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="app.js"></script>
 
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </head>
 
 <body>
-	<h1>bingeti.me</h1>
-	<h1>how long would it take to watch all of...</h1>
-	<input id="tv" type="text" /><button>Search</button>
-	<div id="output">
+	<div class="container-fluid">
+		<div class="header">
+			<h1>bingeti.me</h1>
+			<h2>how long would it take to watch all of...</h2>
+			<form>
+				<div class="box">
+				<input id="search-bar" type="text" placeholder="type in a tv show" />
+				<button class="submit"><i class="fas fa-search"></i></button>
+			</div>
+			</form>
+
+			<div id="search-results">
+				<h2>search results</h2>
+			<div id="output">
+				
+			</div>
+			
+		</div>
+			<p id="final-output"></p>
+		</div>
 	</div>
-	<p id="final-output"></p>
+
+
+
 </body>
 
