@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-	$('button').click(function() {
+	$('form').submit(function(e) {
+		e.preventDefault();
 		var input = $('#search-bar').val();
 		var id;
-
 		$.ajax({
 			type: 'GET',
 			url: 'https://api.themoviedb.org/3/search/tv?page=1&language=en-US&api_key=5114cf314283a1d83f54f9684a701572&query=' + input,
@@ -16,12 +16,13 @@ $(document).ready(function() {
 				$('#output').empty();
 				document.getElementById('final-output').innerHTML = '';
 
+
 				var cap = json.results.length;
 				if (cap > 5) {
 					cap = 5;
 				}
 				for (var i = 0; i < cap; i++) {
-					$('#output').append("<a href ='#' class='result' id='" + i + "'></a>");
+					$('#output').append("<a href='javascript:;' class='result' id='" + i + "'></a>");
 					document.getElementById(i).innerHTML = json.results[i].name;
 				}
 
