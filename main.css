@@ -8,7 +8,6 @@ body {
 
 h1 {
 	font-size: 40px;
-	padding-bottom: 30px;
 }
 
 h2 {
@@ -91,4 +90,20 @@ p {
 	form {
 		width: 90%;
 	}
+}
+
+#logo-title {
+	padding-bottom: 30px;
+}
+
+#logo-title img {
+	width: 45px;
+    height: auto;
+    vertical-align: middle;
+    vertical-align: text-bottom;
+    padding-left: 5px;
+}
+
+#logo-title h1 {
+	display: inline;
 }
