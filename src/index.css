@@ -1,0 +1,10 @@
+html, body {
+  text-align: center;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  color: #373D3F;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}

@@ -1,0 +1,186 @@
+h1 {
+  font-size: 40px;
+}
+
+.container-fluid, .header {
+  height: 100%;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.results {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 10px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.result {
+  border: none;
+  font-size: 30px;
+  font-family: 'Roboto Mono';
+  cursor: pointer;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
+.final-wrapper {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  margin-top: 100px;
+  border-style: solid;
+  border-width: 6px;
+  border-color: #373D3F;
+  text-align: left;
+  /* transition: all 200ms ease-in-out; */
+}
+
+.final-wrapper:hover {
+  opacity: 1;
+}
+
+.final-result {
+  font-size: 35px;
+  font-family: 'Roboto Mono';
+  padding: 0px;
+  margin-bottom: 15px;
+  color: #373D3F;
+}
+
+.final-result-info {
+  font-size: 20px;
+  font-family: 'Roboto Mono';
+  color: #373D3F;
+}
+
+.result-aired {
+  font-size: 20px;
+  font-family: 'Roboto Mono';
+  
+}
+
+.result-overview {
+  font-size: 12px;
+  font-family: 'Roboto Mono';
+  overflow:hidden !important;
+  text-overflow: ellipsis;
+  max-height: 110px;
+  max-width: 680px;
+}
+
+.result:hover {
+  text-decoration: underline;
+}
+
+.result-row {
+  margin: 30px 0px;
+}
+
+.result-col {
+  display: block;
+  text-align: right;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 40px;
+  text-align: left;
+}
+
+.box {
+  height: 60px;
+  border-style: solid;
+  border-width: 6px;
+  border-color: #373D3F;
+  width: 100%;
+}
+
+#search-bar,
+.submit {
+  font-size: 18px;
+  padding: 0 15px;
+  height: 100%;
+  border: none;
+}
+
+#search-bar {
+  width: calc(100% - 50px);
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+.submit {
+  font-weight: 600;
+  background: #fff;
+  color: #373D3F;
+  height: 100%;
+  width: 50px;
+  float: right;
+  transition: all 100ms ease-in-out;
+}
+
+.submit:hover {
+  background: #373D3F;
+  color: #fff;
+  cursor: pointer;
+}
+
+a {
+  color: #373D3F;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+a:hover {
+  color: #373D3F;
+  text-decoration: underline;
+
+}
+
+@media (max-width: 1000px) {
+  form {
+    width: 90%;
+  }
+  .results {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .result-col {
+    text-align: center;
+  }
+}
+
+#logo-title {
+  padding-top: 30px;
+  
+}
+
+#logo-title img {
+  width: 45px;
+  height: auto;
+  vertical-align: middle;
+  vertical-align: text-bottom;
+  padding-left: 5px;
+}
+
+img {
+  text-indent: -10000px
+}
+
+#logo-title h1 {
+  display: inline;
+}
+
+.fas {
+  height: 100%;
+  border: none;
+}
