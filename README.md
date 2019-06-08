@@ -3,6 +3,22 @@ A web app that calculates how long it takes to watch every episode of any TV sho
 
 ## Demo
 
+## Setup locally
+
+Clone the repository
+```
+git clone https://github.com/davidbobyang/bingeti.me.git
+cd bingeti.me
+```
+Install dependencies
+```
+npm install
+```
+Start local server (this project uses create-react-app)
+```
+npm start
+```
+
 ## To do
 * add option to show more info on final result box
 * add button to go back to search results
@@ -13,5 +29,4 @@ A web app that calculates how long it takes to watch every episode of any TV sho
 * implement fallback poster image for 404s
 * deploy to github pages
 * add help button
-* add installation guide
 * implement autocomplete
