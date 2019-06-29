@@ -1,8 +1,8 @@
 {
-  "name": "src",
+  "name": "bingetime",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://davidbobyang.github.io/bingeti.me",
+  "homepage": "https://davidbobyang.github.io/bingetime",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
