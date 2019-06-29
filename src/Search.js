@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import popcorn from './popcorn.png';
+import backarrow from './arrow.png';
 
 class Search extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Search extends React.Component {
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleBack = this.handleBack.bind(this);
   }
 
   handleSubmit(e) {
@@ -29,6 +31,13 @@ class Search extends React.Component {
 
   handleQueryChange(e) {
     this.setState({ query: e.target.value });
+  }
+
+  handleBack(e) {
+    e.preventDefault();
+    this.setState({
+      final_view: false
+    });
   }
 
   handleClick(e) {
@@ -97,6 +106,14 @@ class Search extends React.Component {
         </div>
       </form>
     );
+
+    if (this.state.final_view) {
+      html.push(
+        <div className="back-button">
+          <button onClick={this.handleBack}><img src={backarrow} alt="back arrow icon"/></button>
+        </div>
+      )
+    }
 
     if (this.state.final_view) {
       const row_style = {
