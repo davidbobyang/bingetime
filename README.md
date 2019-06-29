@@ -2,6 +2,7 @@
 A web app that calculates how long it takes to watch every episode of any TV show. Uses the [TMDb API](https://www.themoviedb.org/documentation/api). Popcorn icon by Joey Golaw from the Noun Project.
 
 ## Demo
+Visit the website [here](http://davidy.me/bingeti.me/).
 
 ## Setup locally
 
@@ -27,6 +28,5 @@ npm start
 * add button to share on social media
 * recommend popular searches on home screen
 * implement fallback poster image for 404s
-* deploy to github pages
 * add help button
 * implement autocomplete
