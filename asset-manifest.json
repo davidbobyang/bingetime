@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/bingetime/static/css/main.62cad877.chunk.css",
-    "main.js": "/bingetime/static/js/main.071eee6b.chunk.js",
-    "main.js.map": "/bingetime/static/js/main.071eee6b.chunk.js.map",
-    "runtime~main.js": "/bingetime/static/js/runtime~main.ab54a8a1.js",
-    "runtime~main.js.map": "/bingetime/static/js/runtime~main.ab54a8a1.js.map",
-    "static/js/2.6933908c.chunk.js": "/bingetime/static/js/2.6933908c.chunk.js",
-    "static/js/2.6933908c.chunk.js.map": "/bingetime/static/js/2.6933908c.chunk.js.map",
-    "index.html": "/bingetime/index.html",
-    "precache-manifest.51b843b3a6d901b5e74db60074799384.js": "/bingetime/precache-manifest.51b843b3a6d901b5e74db60074799384.js",
-    "service-worker.js": "/bingetime/service-worker.js",
-    "static/css/main.62cad877.chunk.css.map": "/bingetime/static/css/main.62cad877.chunk.css.map",
-    "static/media/popcorn.png": "/bingetime/static/media/popcorn.1e555263.png"
+    "main.css": "/bingeti.me/static/css/main.62cad877.chunk.css",
+    "main.js": "/bingeti.me/static/js/main.071eee6b.chunk.js",
+    "main.js.map": "/bingeti.me/static/js/main.071eee6b.chunk.js.map",
+    "runtime~main.js": "/bingeti.me/static/js/runtime~main.f021b822.js",
+    "runtime~main.js.map": "/bingeti.me/static/js/runtime~main.f021b822.js.map",
+    "static/js/2.6933908c.chunk.js": "/bingeti.me/static/js/2.6933908c.chunk.js",
+    "static/js/2.6933908c.chunk.js.map": "/bingeti.me/static/js/2.6933908c.chunk.js.map",
+    "index.html": "/bingeti.me/index.html",
+    "precache-manifest.6136280bdb98f5e5b998376686bd01b1.js": "/bingeti.me/precache-manifest.6136280bdb98f5e5b998376686bd01b1.js",
+    "service-worker.js": "/bingeti.me/service-worker.js",
+    "static/css/main.62cad877.chunk.css.map": "/bingeti.me/static/css/main.62cad877.chunk.css.map",
+    "static/media/popcorn.png": "/bingeti.me/static/media/popcorn.1e555263.png"
   }
 }
