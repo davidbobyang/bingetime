@@ -20,6 +20,7 @@ class Search extends React.Component {
   }
 
   handleSubmit(e) {
+    // handle a search submission
     e.preventDefault();
     this.setState({
       final_view: false,
@@ -29,10 +30,12 @@ class Search extends React.Component {
   }
 
   handleQueryChange(e) {
+    // handle a change in the search query
     this.setState({ query: e.target.value });
   }
 
   handleBack(e) {
+    // handle a press of the back button
     e.preventDefault();
     this.setState({
       final_view: false
@@ -40,6 +43,7 @@ class Search extends React.Component {
   }
 
   handleClick(e) {
+    // handle clicking on a search result
     e.preventDefault();
     let id = e.currentTarget.value;
     let url = `https://api.themoviedb.org/3/tv/${id}?language=en-US&api_key=5114cf314283a1d83f54f9684a701572`;
@@ -69,6 +73,7 @@ class Search extends React.Component {
   }
 
   fetchSubmitData(url) {
+    // fetch data for search results
     fetch(url, { method: 'GET' })
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);
@@ -88,28 +93,28 @@ class Search extends React.Component {
 
   render() {
     let html = [];
-    if (!this.state.final_view) {
+
+    if (this.state.final_view) {
+      // show only the search bar with back button
+      html.push(
+        <form onSubmit={this.handleSubmit}>
+        <div className="box">
+          <input className="search-bar two-icons" type="text" value={this.state.query}
+            onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
+          <button type="submit" className="submit search-button"><i className="fas fa-search"></i></button>
+          <button onClick={this.handleBack} className="submit back-button"><i class="fas fa-arrow-left"></i></button>
+        </div>
+      </form>
+      )
+    }
+    else {
+      // show logo and search bar without back button
       html.push(
         <div id="logo-title">
           <h1>bingetime</h1>
           <img src={popcorn} alt="popcorn icon"></img>
         </div>
       );
-    }
-
-    if (this.state.final_view) {
-      html.push(
-        <form onSubmit={this.handleSubmit}>
-        <div className="box">
-          <button onClick={this.handleBack} className="submit back-button"><i class="fas fa-arrow-left"></i></button>
-          <input className="search-bar two-icons" type="text" value={this.state.query}
-            onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
-          <button type="submit" className="submit search-button"><i className="fas fa-search"></i></button>
-        </div>
-      </form>
-      )
-    }
-    else {
       html.push(
         <form onSubmit={this.handleSubmit}>
           <div className="box">
@@ -122,6 +127,7 @@ class Search extends React.Component {
     }
 
     if (this.state.final_view) {
+      // show final view with the show info and backdrop
       const row_style = {
         backgroundImage: `url(https://image.tmdb.org/t/p/original${this.state.final_result.backdrop_path})`,
         backgroundSize: 'cover',
@@ -157,6 +163,8 @@ class Search extends React.Component {
       );
       return (<div className="container-fluid" style={row_style}>{html}</div>);
     }
+
+    // show search results
     html.push(
       <div className="results container">
         {this.state.results.map(result => (
@@ -177,6 +185,7 @@ class Search extends React.Component {
         ))}
       </div>
     );
+
     return (<div className="container-fluid">{html}</div>);
   }
 }
