@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import popcorn from './popcorn.png';
-import backarrow from './arrow.png';
 
 class Search extends React.Component {
   constructor(props) {
