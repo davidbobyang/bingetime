@@ -25,7 +25,6 @@ npm start
 * add button to hide/show boxes to see full background
 * animations
 * add button to share on social media
-* recommend popular searches on home screen
 * implement fallback poster image for 404s
 * add help button
 * implement autocomplete

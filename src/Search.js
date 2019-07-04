@@ -9,8 +9,9 @@ class Search extends React.Component {
       query: '',
       results: [],
       final_result: {},
-      final_view: false,
+      view: 'home',
       final_string: '',
+      trending: []
     };
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
@@ -23,7 +24,7 @@ class Search extends React.Component {
     // handle a search submission
     e.preventDefault();
     this.setState({
-      final_view: false,
+      view: 'results',
     });
     const url = `https://api.themoviedb.org/3/search/tv?page=1&language=en-US&api_key=5114cf314283a1d83f54f9684a701572&query=${this.state.query}`;
     this.fetchSubmitData(url);
@@ -37,9 +38,16 @@ class Search extends React.Component {
   handleBack(e) {
     // handle a press of the back button
     e.preventDefault();
-    this.setState({
-      final_view: false
-    });
+    if (this.state.results.length === 0) {
+      this.setState({
+        view: 'home'
+      });
+    }
+    else {
+      this.setState({
+        view: 'results'
+      });
+    }
   }
 
   handleClick(e) {
@@ -64,7 +72,7 @@ class Search extends React.Component {
         let and_string = days_string && hours_string ? " and " : "";
 
         this.setState({
-          final_view: true,
+          view: 'final',
           final_string: days_string + and_string + hours_string,
           final_result: data,
         });
@@ -91,10 +99,29 @@ class Search extends React.Component {
       .catch(error => console.log(error));
   }
 
+  fetchTrendingData() {
+    // fetch data for trending tv shows
+    let url = 'https://api.themoviedb.org/3/trending/tv/week?api_key=5114cf314283a1d83f54f9684a701572';
+    fetch(url, { method: 'GET' })
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then((data) => {
+        let temp = data.results;
+        temp = temp.slice(0, 5);
+        this.setState({
+          trending: temp,
+        });
+        console.log(this.state.trending);
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
     let html = [];
 
-    if (this.state.final_view) {
+    if (this.state.view === 'final') {
       // show only the search bar with back button
       html.push(
         <form onSubmit={this.handleSubmit}>
@@ -111,8 +138,8 @@ class Search extends React.Component {
       // show logo and search bar without back button
       html.push(
         <div id="logo-title">
-          <h1>bingetime</h1>
-          <img src={popcorn} alt="popcorn icon"></img>
+          <a href="/"><h1>bingetime</h1></a>
+          <a href="/"><img src={popcorn} alt="popcorn icon"></img></a>
         </div>
       );
       html.push(
@@ -126,7 +153,7 @@ class Search extends React.Component {
       );
     }
 
-    if (this.state.final_view) {
+    if (this.state.view === 'final') {
       // show final view with the show info and backdrop
       const row_style = {
         backgroundImage: `url(https://image.tmdb.org/t/p/original${this.state.final_result.backdrop_path})`,
@@ -163,28 +190,53 @@ class Search extends React.Component {
       );
       return (<div className="container-fluid" style={row_style}>{html}</div>);
     }
+    
+    if (this.state.view === 'results') {
+      // show search results
+      html.push(
+        <div className="results container">
+          {this.state.results.map(result => (
+            <div className="row result-row" key={result.id}>
+              <div className="col-xl-3 col-md-4 col-sm-12 result-col">
+                <button onClick={this.handleClick} className="result" value={result.id}>
+                  <img src={`https://image.tmdb.org/t/p/w154${result.poster_path}`} alt={result.name}></img>
+                </button>
+              </div>
+              <div className="d-none d-md-block col-xl-9 col-md-8">
+                <button onClick={this.handleClick} className="result" value={result.id}>
+                  {result.name}
+                </button>
+                <p className="result-aired">first aired: {moment(result.first_air_date, "YYYY-MM-DD").format("MMMM YYYY")}</p>
+                <p className="result-overview">{result.overview}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
 
-    // show search results
-    html.push(
-      <div className="results container">
-        {this.state.results.map(result => (
-          <div className="row result-row" key={result.id}>
-            <div className="col-xl-3 col-md-4 col-sm-12 result-col">
-              <button onClick={this.handleClick} className="result" value={result.id}>
-                <img src={`https://image.tmdb.org/t/p/w154${result.poster_path}`} alt={result.name}></img>
-              </button>
-            </div>
-            <div className="d-none d-md-block col-xl-9 col-md-8">
-              <button onClick={this.handleClick} className="result" value={result.id}>
-                {result.name}
-              </button>
-              <p className="result-aired">first aired: {moment(result.first_air_date, "YYYY-MM-DD").format("MMMM YYYY")}</p>
-              <p className="result-overview">{result.overview}</p>
-            </div>
+    if (this.state.view === 'home') {
+      if (this.state.trending.length === 0) {
+        // fetch trending data if it hasn't been fetched yet
+        this.fetchTrendingData();
+      }
+      
+      // show trending tv shows
+      html.push(
+        <div className="trending">
+          <div className="trending-title">
+            <i class="fas fa-fire fa-2x"></i><h2>trending</h2><i class="fas fa-fire fa-2x"></i>
           </div>
-        ))}
-      </div>
-    );
+          <div className="trending-shows">
+            {this.state.trending.map(trending_show => (
+              <button onClick={this.handleClick} className="trending-show" value={trending_show.id}>
+                {trending_show.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
 
     return (<div className="container-fluid">{html}</div>);
   }
