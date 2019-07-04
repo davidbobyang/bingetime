@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/bingetime/static/css/main.b1118740.chunk.css",
-    "main.js": "/bingetime/static/js/main.ac91ed58.chunk.js",
-    "main.js.map": "/bingetime/static/js/main.ac91ed58.chunk.js.map",
+    "main.css": "/bingetime/static/css/main.4f7bc1ae.chunk.css",
+    "main.js": "/bingetime/static/js/main.44381333.chunk.js",
+    "main.js.map": "/bingetime/static/js/main.44381333.chunk.js.map",
     "runtime~main.js": "/bingetime/static/js/runtime~main.ab54a8a1.js",
     "runtime~main.js.map": "/bingetime/static/js/runtime~main.ab54a8a1.js.map",
     "static/js/2.6933908c.chunk.js": "/bingetime/static/js/2.6933908c.chunk.js",
     "static/js/2.6933908c.chunk.js.map": "/bingetime/static/js/2.6933908c.chunk.js.map",
     "index.html": "/bingetime/index.html",
-    "precache-manifest.0cabe5250d4524b455f28cba753e6629.js": "/bingetime/precache-manifest.0cabe5250d4524b455f28cba753e6629.js",
+    "precache-manifest.606b7716463cd549ef68a710a459a205.js": "/bingetime/precache-manifest.606b7716463cd549ef68a710a459a205.js",
     "service-worker.js": "/bingetime/service-worker.js",
-    "static/css/main.b1118740.chunk.css.map": "/bingetime/static/css/main.b1118740.chunk.css.map",
+    "static/css/main.4f7bc1ae.chunk.css.map": "/bingetime/static/css/main.4f7bc1ae.chunk.css.map",
     "static/media/popcorn.png": "/bingetime/static/media/popcorn.1e555263.png"
   }
 }
