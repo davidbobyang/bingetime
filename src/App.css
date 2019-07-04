@@ -100,7 +100,7 @@ form {
   width: 100%;
 }
 
-#search-bar,
+.search-bar,
 .submit {
   font-size: 18px;
   padding: 0 15px;
@@ -108,8 +108,12 @@ form {
   border: none;
 }
 
-#search-bar {
+.one-icon {
   width: calc(100% - 50px);
+}
+
+.two-icons {
+  width: calc(100% - 100px);
 }
 
 button:focus,
@@ -123,7 +127,6 @@ input:focus {
   color: #373D3F;
   height: 100%;
   width: 50px;
-  float: right;
   transition: all 100ms ease-in-out;
 }
 
@@ -184,9 +187,9 @@ img {
   height: 100%;
   border: none;
 }
-
+/* 
 .back-button {
-  position: absolute;
+  position: relative;
   top: 45px;
   left: 50px;
 }
@@ -199,6 +202,14 @@ img {
 }
 
 .back-button > button > img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+} */
+
+.back-button {
+  float: left;
+}
+
+.search-button {
+  float: right;
 }

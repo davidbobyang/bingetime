@@ -97,22 +97,29 @@ class Search extends React.Component {
         </div>
       );
     }
-    html.push(
-      <form onSubmit={this.handleSubmit}>
-        <div className="box">
-          <input id="search-bar" type="text" value={this.state.query}
-            onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
-          <button type="submit" className="submit"><i className="fas fa-search"></i></button>
-        </div>
-      </form>
-    );
 
     if (this.state.final_view) {
       html.push(
-        <div className="back-button">
-          <button onClick={this.handleBack}><img src={backarrow} alt="back arrow icon"/></button>
+        <form onSubmit={this.handleSubmit}>
+        <div className="box">
+          <button onClick={this.handleBack} className="submit back-button"><i class="fas fa-arrow-left"></i></button>
+          <input className="search-bar two-icons" type="text" value={this.state.query}
+            onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
+          <button type="submit" className="submit search-button"><i className="fas fa-search"></i></button>
         </div>
+      </form>
       )
+    }
+    else {
+      html.push(
+        <form onSubmit={this.handleSubmit}>
+          <div className="box">
+            <input className="search-bar one-icon" type="text" value={this.state.query}
+              onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
+            <button type="submit" className="submit"><i className="fas fa-search"></i></button>
+          </div>
+        </form>
+      );
     }
 
     if (this.state.final_view) {
