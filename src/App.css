@@ -224,6 +224,7 @@ img {
   cursor: pointer;
   padding: 0px;
   margin: 10px 20px;
+  background-color: white;
 }
 
 .trending-show:hover {

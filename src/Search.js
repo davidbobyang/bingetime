@@ -138,8 +138,8 @@ class Search extends React.Component {
       // show logo and search bar without back button
       html.push(
         <div id="logo-title">
-          <a href="/"><h1>bingetime</h1></a>
-          <a href="/"><img src={popcorn} alt="popcorn icon"></img></a>
+          <a href="http://davidy.me/bingetime/"><h1>bingetime</h1></a>
+          <a href="http://davidy.me/bingetime/"><img src={popcorn} alt="popcorn icon"></img></a>
         </div>
       );
       html.push(
