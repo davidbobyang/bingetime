@@ -160,6 +160,8 @@ class Search extends React.Component {
         backgroundSize: 'cover',
         backgroundColor: 'rgba(0,0,0,0.5)'
       };
+      const twitter_link = `https://twitter.com/intent/tweet?text=${this.state.final_result.name}%20takes%20${this.state.final_string}%20to%20watch.%20Calculated%20at:%20http%3A%2F%2Fdavidy.me/bingetime%2F`;
+      const facebook_link = `https://www.facebook.com/sharer/sharer.php?u=http://davidy.me/bingetime`;
       html.push(
         <div className="container">
           <div className="row final-result-row">
@@ -182,6 +184,10 @@ class Search extends React.Component {
                   }
                 </p>
                 <p className="final-result-info">takes {this.state.final_string} to watch</p>
+                <div className="share-icons">
+                  <a href={twitter_link}><i class="fab fa-twitter"></i></a>
+                  <a href={facebook_link}><i class="fab fa-facebook-f"></i></a>
+                </div>
               </div>
             </div>
           </div>

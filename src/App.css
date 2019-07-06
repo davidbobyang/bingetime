@@ -234,3 +234,11 @@ img {
 .fa-fire {
   color: #ef8437;
 }
+
+.fa-facebook-f {
+  margin-bottom: 2px;
+}
+
+.share-icons > a {
+  margin-right: 17px;
+}
