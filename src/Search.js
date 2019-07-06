@@ -174,7 +174,7 @@ class Search extends React.Component {
                   {this.state.final_result.number_of_seasons}
                   {this.state.final_result.number_of_seasons === 1 ? " season, " : " seasons, "}
                   {this.state.final_result.number_of_episodes}
-                  {this.state.final_result.number_of_episodes === 1 ? " episode" : " episodes"}
+                  {this.state.final_result.number_of_episodes ? (this.state.final_result.number_of_episodes === 1 ? " episode" : " episodes") : '0 episodes'}
                 </p>
                 <p className="final-result-info">
                   {
@@ -183,7 +183,7 @@ class Search extends React.Component {
                       `${this.state.final_result.status.toLowerCase()}`
                   }
                 </p>
-                <p className="final-result-info">takes {this.state.final_string} to watch</p>
+                <p className="final-result-info">{this.state.final_string ? 'takes ' + this.state.final_string + ' to watch' : ''}</p>
                 <div className="share-icons">
                   <a href={twitter_link}><i class="fab fa-twitter"></i></a>
                   <a href={facebook_link}><i class="fab fa-facebook-f"></i></a>
@@ -212,7 +212,7 @@ class Search extends React.Component {
                 <button onClick={this.handleClick} className="result" value={result.id}>
                   {result.name}
                 </button>
-                <p className="result-aired">first aired: {moment(result.first_air_date, "YYYY-MM-DD").format("MMMM YYYY")}</p>
+                <p className="result-aired">first aired: {result.first_air_date ? moment(result.first_air_date, "YYYY-MM-DD").format("MMMM YYYY") : 'TBD'}</p>
                 <p className="result-overview">{result.overview}</p>
               </div>
             </div>
