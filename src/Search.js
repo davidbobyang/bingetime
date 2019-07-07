@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import popcorn from './popcorn.png';
+import default_poster from './default_poster.png';
 
 class Search extends React.Component {
   constructor(props) {
@@ -205,7 +206,7 @@ class Search extends React.Component {
             <div className="row result-row" key={result.id}>
               <div className="col-xl-3 col-md-4 col-sm-12 result-col">
                 <button onClick={this.handleClick} className="result" value={result.id}>
-                  <img src={`https://image.tmdb.org/t/p/w154${result.poster_path}`} alt={result.name}></img>
+                  <img src={result.poster_path ? `https://image.tmdb.org/t/p/w154${result.poster_path}` : default_poster} alt={result.name}></img>
                 </button>
               </div>
               <div className="d-none d-md-block col-xl-9 col-md-8">

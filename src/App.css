@@ -241,4 +241,10 @@ img {
 
 .share-icons > a {
   margin-right: 17px;
+  opacity: 0.8;
+}
+
+.share-icons > a:hover {
+  opacity: 1;
+  transition: all 200ms ease-in-out;
 }

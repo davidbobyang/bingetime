@@ -24,6 +24,5 @@ npm start
 * add option to show more info on final result box
 * add button to hide/show boxes to see full background
 * animations
-* implement fallback poster image for 404s
 * add help button
 * implement autocomplete
