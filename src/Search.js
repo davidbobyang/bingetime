@@ -13,7 +13,8 @@ class Search extends React.Component {
       view: 'home',
       final_string: '',
       trending: [],
-      show_background: false
+      show_background: false,
+      more_info: false
     };
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
@@ -21,6 +22,7 @@ class Search extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.handleShowBackground = this.handleShowBackground.bind(this);
+    this.handleMoreInfo = this.handleMoreInfo.bind(this);
   }
 
   handleSubmit(e) {
@@ -64,6 +66,21 @@ class Search extends React.Component {
     else {
       this.setState({
         show_background: true
+      });
+    }
+  }
+
+  handleMoreInfo(e) {
+    // handle a press of the more info button
+    e.preventDefault();
+    if (this.state.more_info) {
+      this.setState({
+        more_info: false
+      });
+    }
+    else {
+      this.setState({
+        more_info: true
       });
     }
   }
@@ -220,6 +237,23 @@ class Search extends React.Component {
                     }
                   </p>
                   <p className="final-result-info">{this.state.final_string ? 'takes ' + this.state.final_string + ' to watch' : ''}</p>
+                  <p className="final-result-more-info">
+                    {this.state.more_info && this.state.final_result.episode_run_time[0] ?
+                    'episode run time: ' + this.state.final_result.episode_run_time[0] + ' minutes' : ''}
+                  </p>
+                  <p className="final-result-more-info">
+                    {this.state.more_info && this.state.final_result.genres.length > 0 ?
+                    'genres: ' + this.state.final_result.genres.map((genre, i) => (
+                    i === 0 ? genre.name : ' ' + genre.name)) : ''
+                    }
+                  </p>
+                  <p className="final-result-more-info">
+                    {this.state.more_info && this.state.final_result.networks.length > 0 ?
+                    'networks: ' + this.state.final_result.networks.map((network, i) => (
+                    i === 0 ? network.name : ' ' + network.name)) : ''
+                    }
+                  </p>
+                  <button onClick={this.handleMoreInfo} className="more-info">{this.state.more_info ? 'less' : 'more'}</button>
                   <div className="share-icons">
                     <a href={twitter_link}><i class="fab fa-twitter"></i></a>
                     <a href={facebook_link}><i class="fab fa-facebook-f"></i></a>

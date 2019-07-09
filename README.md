@@ -21,7 +21,6 @@ npm start
 ```
 
 ## To do
-* add option to show more info on final result box
 * animations
 * add help button
 * implement autocomplete
