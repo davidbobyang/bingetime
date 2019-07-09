@@ -248,3 +248,30 @@ img {
   opacity: 1;
   transition: all 200ms ease-in-out;
 }
+
+.background-button {
+  position: absolute;
+  bottom: 50px;
+  right: 60px;
+}
+
+@media (max-width: 768px) {
+  .background-button {
+    display: none;
+  }
+}
+
+.eye {
+  font-weight: 600;
+  background: none;
+  color: white;
+  height: 100%;
+  width: 50px;
+  transition: all 100ms ease-in-out;
+  border: none;
+}
+
+.eye:hover {
+  color: #d1d1d1;
+  cursor: pointer;
+}

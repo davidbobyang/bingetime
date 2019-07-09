@@ -22,7 +22,6 @@ npm start
 
 ## To do
 * add option to show more info on final result box
-* add button to hide/show boxes to see full background
 * animations
 * add help button
 * implement autocomplete

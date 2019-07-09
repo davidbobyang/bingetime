@@ -12,13 +12,15 @@ class Search extends React.Component {
       final_result: {},
       view: 'home',
       final_string: '',
-      trending: []
+      trending: [],
+      show_background: false
     };
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleBack = this.handleBack.bind(this);
+    this.handleShowBackground = this.handleShowBackground.bind(this);
   }
 
   handleSubmit(e) {
@@ -47,6 +49,21 @@ class Search extends React.Component {
     else {
       this.setState({
         view: 'results'
+      });
+    }
+  }
+
+  handleShowBackground(e) {
+    // handle a press of the show background button (eye icon)
+    e.preventDefault();
+    if (this.state.show_background) {
+      this.setState({
+        show_background: false
+      });
+    }
+    else {
+      this.setState({
+        show_background: true
       });
     }
   }
@@ -122,40 +139,41 @@ class Search extends React.Component {
   render() {
     let html = [];
 
-    if (this.state.view === 'final') {
-      // show only the search bar with back button
-      html.push(
-        <form onSubmit={this.handleSubmit}>
-        <div className="box">
-          <input className="search-bar two-icons" type="text" value={this.state.query}
-            onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
-          <button type="submit" className="submit search-button"><i className="fas fa-search"></i></button>
-          <button onClick={this.handleBack} className="submit back-button"><i class="fas fa-arrow-left"></i></button>
-        </div>
-      </form>
-      )
-    }
-    else {
-      // show logo and search bar without back button
-      html.push(
-        <div id="logo-title">
-          <a href="http://davidy.me/bingetime/"><h1>bingetime</h1></a>
-          <a href="http://davidy.me/bingetime/"><img src={popcorn} alt="popcorn icon"></img></a>
-        </div>
-      );
-      html.push(
-        <form onSubmit={this.handleSubmit}>
+    if (!this.state.show_background) {
+      if (this.state.view === 'final') {
+        // show only the search bar with back button
+        html.push(
+          <form onSubmit={this.handleSubmit}>
           <div className="box">
-            <input className="search-bar one-icon" type="text" value={this.state.query}
+            <input className="search-bar two-icons" type="text" value={this.state.query}
               onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
-            <button type="submit" className="submit"><i className="fas fa-search"></i></button>
+            <button type="submit" className="submit search-button"><i className="fas fa-search"></i></button>
+            <button onClick={this.handleBack} className="submit back-button"><i class="fas fa-arrow-left"></i></button>
           </div>
         </form>
-      );
+        )
+      }
+      else {
+        // show logo and search bar without back button
+        html.push(
+          <div id="logo-title">
+            <a href="http://davidy.me/bingetime/"><h1>bingetime</h1></a>
+            <a href="http://davidy.me/bingetime/"><img src={popcorn} alt="popcorn icon"></img></a>
+          </div>
+        );
+        html.push(
+          <form onSubmit={this.handleSubmit}>
+            <div className="box">
+              <input className="search-bar one-icon" type="text" value={this.state.query}
+                onChange={this.handleQueryChange} autoComplete="off" placeholder="type in a tv show" />
+              <button type="submit" className="submit"><i className="fas fa-search"></i></button>
+            </div>
+          </form>
+        );
+      }
     }
 
     if (this.state.view === 'final') {
-      // show final view with the show info and backdrop
       const row_style = {
         backgroundImage: `url(https://image.tmdb.org/t/p/original${this.state.final_result.backdrop_path})`,
         backgroundSize: 'cover',
@@ -163,38 +181,59 @@ class Search extends React.Component {
       };
       const twitter_link = `https://twitter.com/intent/tweet?text=${this.state.final_result.name}%20takes%20${this.state.final_string}%20to%20watch.%20Calculated%20at:%20http%3A%2F%2Fdavidy.me/bingetime%2F`;
       const facebook_link = `https://www.facebook.com/sharer/sharer.php?u=http://davidy.me/bingetime`;
-      html.push(
-        <div className="container">
-          <div className="row final-result-row">
-            <div className="col-12">
-              <div className="final-wrapper">
-                <div className="final-result">
-                  {this.state.final_result.name}
-                </div>
-                <p className="final-result-info">
-                  {this.state.final_result.number_of_seasons}
-                  {this.state.final_result.number_of_seasons === 1 ? " season, " : " seasons, "}
-                  {this.state.final_result.number_of_episodes}
-                  {this.state.final_result.number_of_episodes ? (this.state.final_result.number_of_episodes === 1 ? " episode" : " episodes") : '0 episodes'}
-                </p>
-                <p className="final-result-info">
-                  {
-                    this.state.final_result.status === "Ended" ?
-                      `ended in ${moment(this.state.final_result.last_air_date, "YYYY-MM-DD").format("MMMM YYYY")}` :
-                      `${this.state.final_result.status.toLowerCase()}`
-                  }
-                </p>
-                <p className="final-result-info">{this.state.final_string ? 'takes ' + this.state.final_string + ' to watch' : ''}</p>
-                <div className="share-icons">
-                  <a href={twitter_link}><i class="fab fa-twitter"></i></a>
-                  <a href={facebook_link}><i class="fab fa-facebook-f"></i></a>
+      
+      if (this.state.show_background) {
+        // show only the backdrop
+        html.push(
+          <div className="container">
+            <div className="row final-result-row">
+              <div className="col-12">
+              </div>
+            </div>
+            <div className="background-button">
+              <button onClick={this.handleShowBackground} className="eye"><i className="fas fa-eye fa-2x"></i></button>
+            </div>
+          </div>
+        );
+      }
+      else {
+        // show final view with the show info and backdrop
+        html.push(
+          <div className="container">
+            <div className="row final-result-row">
+              <div className="col-12">
+                <div className="final-wrapper">
+                  <div className="final-result">
+                    {this.state.final_result.name}
+                  </div>
+                  <p className="final-result-info">
+                    {this.state.final_result.number_of_seasons}
+                    {this.state.final_result.number_of_seasons === 1 ? " season, " : " seasons, "}
+                    {this.state.final_result.number_of_episodes}
+                    {this.state.final_result.number_of_episodes ? (this.state.final_result.number_of_episodes === 1 ? " episode" : " episodes") : '0 episodes'}
+                  </p>
+                  <p className="final-result-info">
+                    {
+                      this.state.final_result.status === "Ended" ?
+                        `ended in ${moment(this.state.final_result.last_air_date, "YYYY-MM-DD").format("MMMM YYYY")}` :
+                        `${this.state.final_result.status.toLowerCase()}`
+                    }
+                  </p>
+                  <p className="final-result-info">{this.state.final_string ? 'takes ' + this.state.final_string + ' to watch' : ''}</p>
+                  <div className="share-icons">
+                    <a href={twitter_link}><i class="fab fa-twitter"></i></a>
+                    <a href={facebook_link}><i class="fab fa-facebook-f"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
+            <div className="background-button">
+              <button onClick={this.handleShowBackground} className="eye"><i className="fas fa-eye fa-2x"></i></button>
+            </div>
           </div>
-          <div id="output"></div>
-        </div>
-      );
+        );
+      }
+      
       return (<div className="container-fluid" style={row_style}>{html}</div>);
     }
     
