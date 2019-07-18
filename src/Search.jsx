@@ -58,31 +58,17 @@ class Search extends React.Component {
   handleShowBackground(e) {
     // handle a press of the show background button (eye icon)
     e.preventDefault();
-    if (this.state.show_background) {
-      this.setState({
-        show_background: false
-      });
-    }
-    else {
-      this.setState({
-        show_background: true
-      });
-    }
+    this.setState(prevState => ({
+      show_background: !prevState.show_background
+    }));
   }
 
   handleMoreInfo(e) {
     // handle a press of the more info button
     e.preventDefault();
-    if (this.state.more_info) {
-      this.setState({
-        more_info: false
-      });
-    }
-    else {
-      this.setState({
-        more_info: true
-      });
-    }
+    this.setState(prevState => ({
+      more_info: !prevState.more_info
+    }));
   }
 
   handleClick(e) {
