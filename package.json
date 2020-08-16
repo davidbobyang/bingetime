@@ -4,14 +4,15 @@
   "private": true,
   "homepage": "https://davidbobyang.github.io/bingetime",
   "dependencies": {
+    "dot-prop": "^5.2.0",
     "gh-pages": "^2.0.1",
+    "minimist": "^1.2.2",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "serialize-javascript": "^3.1.0",
-    "set-value": "^3.0.1",
-    "minimist": "^1.2.2"
+    "set-value": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
